@@ -11,6 +11,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 WORKDIR /workspace/
 RUN pip install biopython py3Dmol
 
-COPY examples /workspace/examples
+COPY notebooks /workspace/notebooks
 RUN mkdir /workspace/.local && chmod 777 /workspace/.local
 

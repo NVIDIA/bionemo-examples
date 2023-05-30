@@ -58,7 +58,7 @@ run() {
 run-dev() {
     set -x
     $DOCKER_RUN_CMD \
-        -v $(pwd -P)/examples:/workspace/examples-dev \
+        -v $(pwd -P)/notebooks:/workspace/notebooks-dev \
         ${IMAGE_NAME}
 }
 
