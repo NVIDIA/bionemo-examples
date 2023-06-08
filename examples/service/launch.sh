@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-IMAGE_NAME="nvcr.io/nv-drug-discovery-dev/bionemo-example-public"
-CONT_NAME="bionemo-example-public"
+IMAGE_NAME="bionemo-notebooks"
+CONT_NAME="bionemo-notebooks"
 
 DOCKER_RUN_CMD="docker run \
     --name ${CONT_NAME} \
@@ -35,7 +35,6 @@ DOCKER_RUN_CMD="docker run \
 
 DOCKER_BUILD_CMD="docker build \
     --network host \
-    -t ${IMAGE_NAME}:0.3.2 \
     -t ${IMAGE_NAME}:latest"
 
 
