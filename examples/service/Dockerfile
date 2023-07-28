@@ -27,6 +27,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 WORKDIR /workspace/
 RUN pip install biopython py3Dmol
 
-COPY notebooks /workspace/notebooks
-RUN mkdir /workspace/.local && chmod 777 /workspace/.local
+RUN pip install bionemo
 
+COPY notebooks /workspace/notebooks
+RUN mkdir /workspace/.local /workspace/.cache && chmod 777 -R /workspace
