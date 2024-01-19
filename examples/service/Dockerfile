@@ -28,6 +28,7 @@ WORKDIR /workspace/
 RUN pip install biopython py3Dmol
 
 RUN pip install bionemo
+RUN pip install bionemo-controlled-generation
 
 COPY notebooks /workspace/notebooks
 RUN mkdir /workspace/.local /workspace/.cache && chmod 777 -R /workspace

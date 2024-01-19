@@ -3,6 +3,7 @@
 ### Overview
 This collection of notebooks walks through example workflows using the BioNeMo Service API.
 
+ - *[Guided Molecular Generation](notebooks/cma_custom_oracles.ipynb)* - This notebook shows how to use the molmim_cma package to optimize exploration of the MolMIM model's latent space to generate molecules with properties of interest.
  - *[Virtual Screening](notebooks/virtual-screening-pipeline.ipynb)* - This notebook shows how to connect BioNeMo service models to conduct a virtual drug screening workflow, from ligand generation to protein folding to docking.
  - *[Protein Generation](notebooks/protein-generation-pipeline.ipynb)* - This notebook shows how to generate new protein sequences and predict folded protein structures using ProtGPT2 and OpenFold pre-trained models.
  - *[Task Fitting](notebooks/task-fitting-predictor.ipynb)* - This notebook shows how to obtain protein learned representations in the form of embeddings using the ESM-1nv pre-trained model, and use these embeddings for downstream prediction of subcellular localizataion.
