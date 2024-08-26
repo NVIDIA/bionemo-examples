@@ -1,15 +1,11 @@
 ## NVIDIA BioNeMo
 
 ### Overview
-AI is achieving incredible breakthroughs in chemistry and biology such as enabling 3D protein structure prediction, property prediction, and generation of novel protein sequences and molecules. This progress is enabling developments in the pharmaceutical industry like antibody design, small-molecule drug discovery, and newer approaches like RNA aptamer and peptide-based therapeutics. Generative models, specifically, are enabling every stage of drug discovery.
+NVIDIA BioNeMo is an AI platform for drug discovery that simplifies and accelerates the building and training of models using your own data and scaling the deployment of models for drug discovery applications.
 
-BioNeMo is a cloud service for every stage of AI-powered drug discovery. BioNeMo enables researchers with SOTA AI models for protein structure prediction, molecule generation, protein generation, and binding pose generation. 
-
-BioNeMo provides API endpoints and a rich graphical user interface (GUI) to enable browser-based access to pretrained models, and enables training and fine-tuning of these models through DGX Cloud.  Users can generate molecules with MoFlow and MegaMolBART, generate protein sequences with ProtGPT-2, predict protein structures with ESMFold, OpenFold, and AlphaFold, predict properties from embeddings from MegaMolBART and ESM, and predict docked poses through DiffDock.
-
-BioNeMo is a cloud service for every stage of AI-powered drug discovery.
+NVIDIA NIM offers a set of optimized microservices for AI models used in drug discovery. These prebuilt containers provide state-of-the-art performance and can be deployed anywhere to go from zero to inference in five minutes. Explore our preview APIs, then download BioNeMo NIMs to deploy on premises or in the cloud as the fastest way to achieve enterprise-grade accelerated AI inference at scale in your drug discovery research.
 
 ### Getting Started
-For more information and to sign up for access to BioNeMo Service, please visit [https://www.nvidia.com/en-us/gpu-cloud/bionemo/](https://www.nvidia.com/en-us/gpu-cloud/bionemo/).
+To get started with **BioNeMo NIMs**, see the set of example workflows in [BioNeMo NIMs examples](examples/nims).
 
-To get started with the BioNeMo Service API, you can explore a set of example workflows in the [BioNeMo API example notebooks](examples/service).
+While the full suite of BioNeMo models are migrated to NIMs, existing **BioNeMo Service API** endpoints can be used to explore additional example workflows in the [BioNeMo API example notebooks](examples/service).
