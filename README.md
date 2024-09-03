@@ -8,3 +8,4 @@ NVIDIA NIM offers a set of optimized microservices for AI models used in drug di
 ### Getting Started
 To get started with **BioNeMo NIMs**, see the set of example workflows in [BioNeMo NIMs examples](examples/nims).
 
+To get started with **BioNeMo NIM Agent Blueprints**, see the set of examples in [BioNeMo NABs examples](examples/nabs).
