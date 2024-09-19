@@ -1,7 +1,7 @@
 ## BioNeMo NIM Examples
 
 ### Overview
-This collection of notebooks provides example workflows using the BioNeMo NIMs.
+This collection of notebooks provides example workflows using NVIDIA NIMs.
 
  - [Predict 3D Protein Structure with the AlphaFold2 NIM](alphafold2/AlphaFold2-NIM-example.ipynb)
  - [Guided Molecule Generation with Custom Oracles using the MolMIM NIM](molmim/MolMIMOracleControlledGeneration.ipynb)
