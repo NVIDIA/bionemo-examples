@@ -1,0 +1,4 @@
+numpy
+cma
+rdkit
+jupyterlab
