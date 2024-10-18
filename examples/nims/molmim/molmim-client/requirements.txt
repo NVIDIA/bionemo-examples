@@ -1,0 +1,5 @@
+numpy
+matplotlib
+cma
+rdkit
+jupyterlab
