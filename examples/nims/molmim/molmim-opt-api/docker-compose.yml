@@ -1,0 +1,22 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+services:
+  molmim-base:
+    image: nvcr.io/nim/nvidia/molmim:1.0.0
+    networks:
+      - mynetwork
+    runtime: nvidia
+    ports:
+      - "8000:8000"  # Expose 8000 molmim-base for debugging only
+    environment:
+      - NGC_API_KEY=${NGC_API_KEY:?Error NGC_API_KEY not set}
+
+  molmim-wrapper:
+    build: . # Dockerfile in local path to build a wrapper container
+    networks:
+      - mynetwork
+    ports:
+      - "8080:80"  # Expose wrapper API on host
+
+networks:
+  mynetwork:
+    driver: bridge

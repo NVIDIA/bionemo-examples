@@ -1,0 +1,5 @@
+ipython
+jupyterlab
+matplotlib
+numpy
+rdkit

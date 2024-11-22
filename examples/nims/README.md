@@ -7,4 +7,5 @@ This collection of notebooks provides example workflows using NVIDIA NIMs.
  - [Predict Protein-Ligand 3D Interactions using the DiffDock NIM](diffdock/DiffDock_NIM_Docking.ipynb)
  - [Guided Molecule Generation with Custom Oracles using the MolMIM NIM (notebook)](molmim/MolMIMOracleControlledGeneration.ipynb)
  - [Guided Molecule Generation with Custom Oracles using the MolMIM NIM Client](molmim/molmim-client)
+ - [MolMIM Guided Optimization API](molmim/molmim-opt-api)
 
