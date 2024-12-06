@@ -2,7 +2,8 @@
 import numpy as np
 from cmaes import CMA
 from typing import Annotated, List
-from fastapi import FastAPI, Query, HTTPException
+from fastapi import FastAPI, Body, HTTPException
+from pydantic import BaseModel, Field
 from inference_client import BioNemoNIMClient
 
 # instantiate the application
@@ -16,12 +17,27 @@ base_url = "molmim-base:8000/"
 # connection to molmim - this can be persistent 
 molmim = BioNemoNIMClient(base_url)
 
+class Item(BaseModel):
+    n: int = Field(default=10, ge=10, le=1000)
+    smiles: list[str] | None = None,
+    scores: list[float] | None = None,
+    sigma: float = Field(default=1.0, ge=0.1, le=2.0)
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "n": 10,
+                    "smiles": ["CN1C=NC2=C1C(=O)N(C(=O)N2C)C"],
+                    "scores": [1.0],
+                    "sigma": 1.0,
+                }
+            ]
+        }
+    }
+
 # define the interface
-@app.get("/optimize")
-async def read_items(n: int = Query(default=10, ge=10, le=1000),
-                     smiles: Annotated[List[str] | None, Query()] = ["CN1C=NC2=C1C(=O)N(C(=O)N2C)C"],
-                     scores: Annotated[list[float] | None, Query()] = [1.0],
-                     sigma: float = Query(default=1.0, ge=0.1, le=2.0)):
+@app.post("/optimize/")
+async def read_items(item: Item):
     """
     Generates a new batch of smiles from scores
 
@@ -32,34 +48,36 @@ async def read_items(n: int = Query(default=10, ge=10, le=1000),
     This is API provides one step in an iterative optimization
     of molecules for user-defined objectives.
 
-    parameters
+    Body
     ----------
-    n: number of molecules expected
+    n: The number of molecules expected (int, range[10,1000])
 
-    smiles: [list of strings]
+    smiles: List of SMILES (List[str])
 
-    scores: [list of floats ]
+    scores: List of scores for the input SMILES (List[str])
 
-    returns
+    sigma: CMA-ES sampling std dev (Float, range[0. ,2])
+
+    Returns
     ----------
     smiles: [list of strings]
     """
 
-    if smiles==None:
-        smiles = generate(smiles, scores, n)
+    if item.smiles==None:
+        smiles = generate(item.smiles, item.scores, item.n)
         return {"generated" : smiles}
     
-    elif len(set(smiles))<5:
-        smiles = molmim.sampling(smiles, num_molecules=10)[0]
+    elif len(set(item.smiles))<5:
+        smiles = molmim.sampling(item.smiles, num_molecules=10)[0]
         scores = np.random.normal(0, 1, size=len(smiles))
-        smiles = optimize(smiles, scores, n, sigma)
+        smiles = optimize(smiles, scores, item.n, item.sigma)
         return {"generated" : smiles}
     
-    elif len(smiles)!=len(scores):
+    elif len(item.smiles)!=len(item.scores):
         raise HTTPException(status_code=422, detail="Number of scores and number of smiles must be identical")
     
     else:
-        smiles = optimize(smiles, scores, n, sigma)
+        smiles = optimize(item.smiles, item.scores, item.n, item.sigma)
         return {"generated" : smiles}
 
 
