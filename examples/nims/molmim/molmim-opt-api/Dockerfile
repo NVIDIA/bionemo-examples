@@ -3,7 +3,7 @@ FROM python:3.11
 
 WORKDIR /code
 
-RUN pip install --no-cache-dir --upgrade fastapi[standard] requests rdkit cmaes
+RUN pip install --no-cache-dir --upgrade fastapi[standard] pydantic requests rdkit cmaes
 
 COPY ./*.py /code/
 
