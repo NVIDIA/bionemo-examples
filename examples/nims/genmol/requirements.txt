@@ -1,0 +1,6 @@
+pandas
+numpy
+rdkit
+safe-mol
+datamol
+matplotlib
