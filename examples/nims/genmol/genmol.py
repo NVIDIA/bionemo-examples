@@ -1,4 +1,6 @@
-import requests
+from urllib3.util import Retry
+from requests import Session
+from requests.adapters import HTTPAdapter
 import numpy as np
 
 class GenMol_Generator:
@@ -15,9 +17,17 @@ class GenMol_Generator:
     def __init__(self, invoke_url = 'http://127.0.0.1:8000/generate', auth = None, **kwargs):
         self.invoke_url = invoke_url
         self.auth = auth
-        self.session = requests.Session()
+        self.session = Session()
         self.num_generate = kwargs.get('num_generate', 1)
         self.verbose = False
+        self.max_retries = kwargs.get('max_retries', 5)
+        self.retries = Retry(
+            total=5,
+            backoff_factor=0.1,
+            status_forcelist=[400],
+            allowed_methods={'POST'},
+        )
+        self.session.mount(self.invoke_url, HTTPAdapter(max_retries=self.retries))
 
     def produce(self, molecules, num_generate):       
         generated = []
@@ -59,6 +69,7 @@ class GenMol_Generator:
             print("TASK:", str(task))
         
         json_data = {k : str(v) for k, v in task.items()}
+        
         response = self.session.post(self.invoke_url, headers=headers, json=json_data)
         response.raise_for_status()
 
