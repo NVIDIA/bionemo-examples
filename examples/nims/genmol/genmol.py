@@ -22,12 +22,12 @@ class GenMol_Generator:
         self.verbose = False
         self.max_retries = kwargs.get('max_retries', 5)
         self.retries = Retry(
-            total=5,
-            backoff_factor=0.1,
-            status_forcelist=[400],
-            allowed_methods={'POST'},
+            total = self.max_retries,
+            backoff_factor = 0.1,
+            status_forcelist = [400],
+            allowed_methods = {'POST'},
         )
-        self.session.mount(self.invoke_url, HTTPAdapter(max_retries=self.retries))
+        self.session.mount(self.invoke_url, HTTPAdapter(max_retries = self.retries))
 
     def produce(self, molecules, num_generate):       
         generated = []
