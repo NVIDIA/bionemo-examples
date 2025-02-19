@@ -1,0 +1,61 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+try:
+    from rdkit import Chem
+    from rdkit.Chem import AllChem, Descriptors
+except ModuleNotFoundError:
+    print("Ошибка: Модуль 'rdkit' не установлен. Установите его с помощью 'pip install rdkit'.")
+    exit()
+
+def generate_molecule(smiles):
+    """Генерация молекулы из SMILES"""
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is None:
+        print(f"Ошибка: Невозможно создать молекулу из SMILES {smiles}")
+        return None
+    mol = Chem.AddHs(mol)
+    if AllChem.EmbedMolecule(mol, AllChem.ETKDG()) != 0:
+        print(f"Ошибка: Невозможно сгенерировать 3D-конформацию для {smiles}")
+        return None
+    return mol
+
+# SMILES-структуры серратиопептидазы (упрощенная модель) и ибупрофена
+serratiopeptidase = generate_molecule("CC(C)C1CC(C(=O)O)CC(C)C1")
+ibuprofen = generate_molecule("CC(C)Cc1ccc(cc1)C(C)C(=O)O")
+
+def calculate_logP(mol):
+    """Расчет коэффициента распределения (логP) для оценки липофильности"""
+    if mol is None:
+        return None
+    return Descriptors.MolLogP(mol)
+
+logP_serratiopeptidase = calculate_logP(serratiopeptidase)
+logP_ibuprofen = calculate_logP(ibuprofen)
+
+if logP_serratiopeptidase is not None and logP_ibuprofen is not None:
+    print(f"ЛогP серратиопептидазы: {logP_serratiopeptidase:.2f}")
+    print(f"ЛогP ибупрофена: {logP_ibuprofen:.2f}")
+else:
+    print("Ошибка в расчете логP: одна из молекул не была создана.")
+
+def release_profile(t, k):
+    """Модель высвобождения API из матрицы (Эмпирическая модель)"""
+    return 1 - np.exp(-k * t)
+
+# Моделируем высвобождение для серратиопептидазы и ибупрофена
+T = np.linspace(0, 24, 100)
+k_serratio = 0.1  # Скорость высвобождения серратиопептидазы
+k_ibuprofen = 0.3  # Скорость высвобождения ибупрофена
+
+release_serratio = release_profile(T, k_serratio)
+release_ibuprofen = release_profile(T, k_ibuprofen)
+
+plt.plot(T, release_serratio, label='Серратиопептидаза', linestyle='--')
+plt.plot(T, release_ibuprofen, label='Ибупрофен', linestyle='-')
+plt.xlabel('Время (часы)')
+plt.ylabel('Доля высвобожденного вещества')
+plt.title('Моделирование высвобождения лекарственных веществ')
+plt.legend()
+plt.grid()
+plt.show() 
