@@ -1,6 +1,7 @@
 pandas
 numpy
 rdkit
+transformers==4.51.3
 safe-mol
 datamol
 matplotlib
