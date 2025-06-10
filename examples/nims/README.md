@@ -1,8 +1,9 @@
 ## BioNeMo NIM Examples
 
 ### Overview
-This collection of notebooks provides example workflows using NVIDIA NIMs.
+This collection of notebooks provides example workflows using NVIDIA NIM Microservices.
 
+ - [Biomolecular Structure Prediction with the Boltz-2 NIM](boltz-2)
  - [Fragment-based Molecule Generation with the GenMol NIM](genmol)
  - [Predict 3D Protein Structure with the AlphaFold2 NIM](alphafold2/AlphaFold2-NIM-example.ipynb)
  - [Predict Protein-Ligand 3D Interactions using the DiffDock NIM](diffdock/DiffDock_NIM_Docking.ipynb)
