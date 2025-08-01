@@ -86,6 +86,7 @@ async def quick_prediction():
 
 if __name__ == "__main__":
     asyncio.run(quick_prediction())
+```
 
 ### CLI Usage
 
