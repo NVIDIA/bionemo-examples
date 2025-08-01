@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+dev/
+example_outputs/
+*.cif
+*.log
+prediction_metadata.json
+temp_*
+.DS_Store 
