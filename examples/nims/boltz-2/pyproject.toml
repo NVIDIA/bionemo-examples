@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boltz2-python-client"
+dynamic = ["version"]
+description = "Python client for Boltz-2 protein structure prediction API with covalent complex support"
+readme = "README.md"
+license = "MIT"
+authors = [
+    {name = "NVIDIA Corporation"}
+]
+maintainers = [
+    {name = "NVIDIA Corporation"}
+]
+keywords = ["protein", "structure", "prediction", "AI", "machine learning", "bioinformatics", "covalent", "complex", "boltz2"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "httpx>=0.24.0",
+    "pydantic>=2.0.0",
+    "typing-extensions>=4.0.0",
+    "aiofiles>=23.0.0",
+    "rich>=13.0.0",
+    "click>=8.0.0",
+    "PyYAML>=6.0.0",
+    "py3Dmol>=2.0.0",
+]
+
+[project.scripts]
+boltz2 = "boltz2_client.cli:cli"
+
+[project.urls]
+Homepage = "https://github.com/NVIDIA/bionemo-examples/tree/add-boltz2-python-client/examples/nims/boltz-2"
+Repository = "https://github.com/NVIDIA/bionemo-examples/tree/add-boltz2-python-client/examples/nims/boltz-2"
+
+
+[tool.setuptools.dynamic]
+version = {attr = "boltz2_client.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["boltz2_client*"]
+
+[tool.setuptools.package-data]
+boltz2_client = ["*.md", "*.txt"] 

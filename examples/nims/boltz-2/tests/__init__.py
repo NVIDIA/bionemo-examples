@@ -1,0 +1,1 @@
+"""Tests for the boltz2-python-client package.""" 

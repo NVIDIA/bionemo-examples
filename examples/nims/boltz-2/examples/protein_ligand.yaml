@@ -1,0 +1,8 @@
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: "MKTVRQERLKSIVRILERSKEPVSGAQLAEELSVSRQVIVQDIAYLRSLGYNIVATPRGYVLAGG"
+  - ligand:
+      id: B
+      smiles: "CC(=O)O"
