@@ -2,7 +2,7 @@
 
 Boltz-2 NIM is a next-generation structural biology foundation model that shows strong performance for both structure and affinity prediction. Boltz-2 is the first deep learning model to approach the accuracy of free energy perturbation (FEP) methods in predicting binding affinities of small molecules and proteins—achieving strong correlations on benchmarks while being nearly 1000× more computationally efficient.
 
-Boltz-2 NIM can be acceseed at [build.nvidia.com](https://docs.api.nvidia.com/nim/reference/mit-boltz2).
+Boltz-2 NIM can be accessed at [build.nvidia.com](https://docs.api.nvidia.com/nim/reference/mit-boltz2).
 
 Example notebooks on how to use Boltz-2 NIM endpoint: 
 - [Predicting protein-liagnd covalent complex](./examples/boltz2_nim_protein_ligand_covalent_complex_molstar_visualization.ipynb)
@@ -86,6 +86,7 @@ async def quick_prediction():
 
 if __name__ == "__main__":
     asyncio.run(quick_prediction())
+```
 
 ### CLI Usage
 
