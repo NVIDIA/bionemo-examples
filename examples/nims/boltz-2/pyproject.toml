@@ -9,10 +9,10 @@ description = "Python client for Boltz-2 protein structure prediction API with c
 readme = "README.md"
 license = "MIT"
 authors = [
-    {name = "NVIDIA Corporation", email = "bionemo-support@nvidia.com"}
+    {name = "NVIDIA Corporation"}
 ]
 maintainers = [
-    {name = "NVIDIA Corporation", email = "bionemo-support@nvidia.com"}
+    {name = "NVIDIA Corporation"}
 ]
 keywords = ["protein", "structure", "prediction", "AI", "machine learning", "bioinformatics", "covalent", "complex", "boltz2"]
 classifiers = [
@@ -47,10 +47,9 @@ dependencies = [
 boltz2 = "boltz2_client.cli:cli"
 
 [project.urls]
-Homepage = "https://gitlab-master.nvidia.com/nilkanthp/boltz2-python-client"
-Repository = "https://gitlab-master.nvidia.com/nilkanthp/boltz2-python-client"
-Documentation = "https://gitlab-master.nvidia.com/nilkanthp/boltz2-python-client/-/blob/main/README.md"
-"Bug Reports" = "https://gitlab-master.nvidia.com/nilkanthp/boltz2-python-client/-/issues"
+Homepage = "https://github.com/NVIDIA/bionemo-examples/tree/add-boltz2-python-client/examples/nims/boltz-2"
+Repository = "https://github.com/NVIDIA/bionemo-examples/tree/add-boltz2-python-client/examples/nims/boltz-2"
+
 
 [tool.setuptools.dynamic]
 version = {attr = "boltz2_client.__version__"}
