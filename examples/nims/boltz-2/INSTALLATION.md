@@ -1,12 +1,26 @@
-# Installing Boltz2 Python Client from TestPyPI
+# Installing Boltz2 Python Client
 
 Copyright (c) 2025, NVIDIA CORPORATION. All rights reserved.
 
-## 🧪 **Test Installation (Internal Preview)**
+## 📦 **Installation from PyPI (Production)**
 
-This package is currently available on TestPyPI for internal testing and feedback.
+The Boltz2 Python Client is now available on PyPI for production use.
 
-### **Installation**
+### **Standard Installation**
+
+```bash
+pip install boltz2-python-client
+```
+
+### **Installation with specific version**
+
+```bash
+pip install boltz2-python-client==0.2
+```
+
+## 🧪 **Installation from TestPyPI (Development Preview)**
+
+For testing pre-release versions:
 
 ```bash
 pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ boltz2-python-client
@@ -92,8 +106,9 @@ asyncio.run(visualize_prediction())
 
 ### **Package Information**
 
-- **TestPyPI URL:** https://test.pypi.org/project/boltz2-python-client/0.1.10/
-- **Version:** 0.1.10
+- **PyPI URL:** https://pypi.org/project/boltz2-python-client/
+- **TestPyPI URL:** https://test.pypi.org/project/boltz2-python-client/
+- **Latest Version:** 0.2
 - **Python Requirements:** >=3.8
 
 ### **Features Available**
@@ -119,4 +134,4 @@ Please test the package and provide feedback on:
 
 ---
 
-**Note:** This is a preview version on TestPyPI. The final release will be published to the main PyPI repository. 
+**Note:** The stable version is available on PyPI. TestPyPI is used for development previews and pre-release testing. 
