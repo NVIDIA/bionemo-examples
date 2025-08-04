@@ -242,7 +242,7 @@ docker run -it \
     -p 8000:8000 \
     -e NGC_API_KEY \
     -v "$LOCAL_NIM_CACHE":/opt/nim/.cache \
-    nvcr.io/nim/mit/boltz2:1.0.0
+    nvcr.io/nim/mit/boltz2:1.1.0
 ```
 
 #### Option B: Use Specific GPU (e.g., GPU 0)
@@ -253,7 +253,7 @@ docker run -it \
     -p 8000:8000 \
     -e NGC_API_KEY \
     -v "$LOCAL_NIM_CACHE":/opt/nim/.cache \
-    nvcr.io/nim/mit/boltz2:1.0.0
+    nvcr.io/nim/mit/boltz2:1.1.0
 ```
 
 ### Step 5: Verify Installation
